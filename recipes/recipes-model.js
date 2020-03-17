@@ -10,7 +10,6 @@ module.exports = {
     getRecipes,
     findRecipeId,
     addRecipe,
-    // getShoppingList
     
   };
 
@@ -32,10 +31,3 @@ module.exports = {
 
   }
 
-  // function getShoppingList(recipeId) {
-  //   return db("recipe_ingredients as ri")
-  //   .join("ingredients as i", "i.id", "ri.ingredient_id")  
-  //   .where("ri.recipe_id", recipeId)
-  //   .select("i.*")
-
-  // }

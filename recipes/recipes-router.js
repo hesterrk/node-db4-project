@@ -53,18 +53,6 @@ router.get("/", async (req, res, next) => {
 
 
 
-  // e.g `GET /api/recipes/:id/recingredients`: getShoppingList(recipe_id)`
-
-// router.get("/:id/recingredients", async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const ing = await recipes.getShoppingList(id);
-//       res.json(ing);
-    
-//   } catch (error) {
-//     next(error);
-//   }
-// });
 
 
 
