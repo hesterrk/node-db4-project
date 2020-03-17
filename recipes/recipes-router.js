@@ -19,6 +19,23 @@ router.get("/", async (req, res, next) => {
     }
   });
 
+  //GET RECIPES BY ID 
+
+  router.get("/:id", async (req, res, next) => {
+    try {
+      const { id } = req.params;
+  
+      const recipe = await recipes.findRecipeId(id);
+      if (recipe) {
+        res.json(recipe);
+      } else {
+        res.status(404).json({ message: "Could not find recipe with given id." });
+      }
+    } catch (error) {
+      next(error);
+    }
+  });
+
 
 
 

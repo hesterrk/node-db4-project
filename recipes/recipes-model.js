@@ -8,13 +8,19 @@ const db = require('../db-config')
 
 
 module.exports = {
-    getRecipes
+    getRecipes,
+    findRecipeId
     
   };
 
   //GETS all recipes
-
   function getRecipes() {
       return db("recipes");
 
+  }
+
+  function findRecipeId(id) {
+    return db("recipes")
+      .where({ id })
+      .first();
   }
