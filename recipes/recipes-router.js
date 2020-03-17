@@ -3,12 +3,14 @@ const express = require("express");
 
 // -->Embed sub-router here 
 const recipeIngredientRouter = require("../rec-ingredients/rec-ingredients-router")
+const recipeMethod = require("../methods/recipe-method-router")
 
 const recipes = require("./recipes-model");
 const router = express.Router();
 
 //Using our sub-router here
 router.use("/:id/recingredients", recipeIngredientRouter)
+router.use("/:id/instructions", recipeMethod)
 
 
 //GET  '/' --> GETS ALL RECIPES 
