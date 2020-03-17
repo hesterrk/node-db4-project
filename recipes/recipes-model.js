@@ -1,4 +1,3 @@
-// - `getShoppingList(recipe_id)`: should return a list of all ingredients and quantities for a given recipe
 // - `getInstructions(recipe_id)`: should return a list of step by step instructions for preparing a recipe
 
 // STRETCH
@@ -9,7 +8,8 @@ const db = require('../db-config')
 
 module.exports = {
     getRecipes,
-    findRecipeId
+    findRecipeId,
+    addRecipe
     
   };
 
@@ -23,4 +23,10 @@ module.exports = {
     return db("recipes")
       .where({ id })
       .first();
+  }
+
+  function addRecipe(recipe) {
+    return db("recipes").insert(recipe);
+      
+
   }

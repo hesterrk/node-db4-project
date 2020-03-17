@@ -1,12 +1,14 @@
 const express = require("express");
 
 
-// -->Embed other routers in here!!!! like in guided project 3
-// e.g `GET /api/recipes/:id/shoppingList`: getShoppingList
-
+// -->Embed sub-router here 
+const recipeIngredientRouter = require("../rec-ingredients/rec-ingredients-router")
 
 const recipes = require("./recipes-model");
 const router = express.Router();
+
+//Using our sub-router here
+router.use("/:id/recingredients", recipeIngredientRouter)
 
 
 //GET  '/' --> GETS ALL RECIPES 
@@ -35,6 +37,23 @@ router.get("/", async (req, res, next) => {
       next(error);
     }
   });
+
+
+  //POST NEW RECIPE
+
+  // router.post("/", async (req, res, next) => {
+  //   try {
+  //     const objectToSend = { name: req.body.name };
+  //     const recipe = await recipes.addRecipe(objectToSend);
+  //     res.status(201).json(recipe);
+  //   } catch (error) {
+  //     next(error);
+  //   }
+  // });
+
+
+
+
 
 
 
