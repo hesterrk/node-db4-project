@@ -1,19 +1,17 @@
 const express = require('express');
-//install helmet
-const helmet = require("helmet");
-
-//IMPORT ROUTER here
 
 const recipeRouter = require('./recipes/recipes-router')
+
+//install helmet
+const helmet = require("helmet");
 
 
 const server = express();
 
 server.use(helmet());
-server.use(express.json());
-server.use('/api/recipes', recipeRouter)
+// server.use(express.json());
+server.use('/api/recipes', recipeRouter);
 
-//use router here
 
 
 server.use((err, req, res, next) => {

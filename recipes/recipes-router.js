@@ -13,7 +13,7 @@ const router = express.Router();
 
 router.get("/", async (req, res, next) => {
     try {
-      res.json(await recipes.getRecipes());
+      res.json(await recipes.getRecipes())
     } catch (error) {
       next(error);
     }

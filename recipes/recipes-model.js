@@ -8,7 +8,7 @@ const db = require('../db-config')
 
 
 module.exports = {
-    getRecipes,
+    getRecipes
     
   };
 
