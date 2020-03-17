@@ -2,13 +2,13 @@ const express = require("express");
 
 
 // -->Embed sub-router here 
-const recipeIngredientRouter = require("../rec-ingredients/rec-ingredients-router")
+// const recipeIngredientRouter = require("../rec-ingredients/rec-ingredients-router")
 
 const recipes = require("./recipes-model");
 const router = express.Router();
 
 //Using our sub-router here
-router.use("/:id/recingredients", recipeIngredientRouter)
+// router.use("/:id/recingredients", recipeIngredientRouter)
 
 
 //GET  '/' --> GETS ALL RECIPES 
@@ -51,6 +51,20 @@ router.get("/", async (req, res, next) => {
   //   }
   // });
 
+
+
+  // e.g `GET /api/recipes/:id/recingredients`: getShoppingList(recipe_id)`
+
+router.get("/:id/recingredients", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const ing = await recipes.getShoppingList(id);
+      res.json(ing);
+    
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 
