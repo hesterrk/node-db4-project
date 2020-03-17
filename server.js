@@ -4,12 +4,14 @@ const helmet = require("helmet");
 
 //IMPORT ROUTER here
 
+const recipeRouter = require('./recipes/recipes-router')
 
 
 const server = express();
 
 server.use(helmet());
 server.use(express.json());
+server.use('/api/recipes', recipeRouter)
 
 //use router here
 
