@@ -26,12 +26,13 @@ function findIngrById(id) {
 }
 
 
+//all recipes that belong to single ingredient 
 
 function getAllRecipes(ingredientId) {
     return db("recipe_ingredients as ri")
     .join("recipes as r", "r.id", "ri.recipe_id")
     .join("ingredients as i", "i.id", "ri.ingredient_id")
-    .where("r.id", ingredientId)
+    .where("ri.ingredient_id", ingredientId)
     .select("i.*", "r.name")
 
 
