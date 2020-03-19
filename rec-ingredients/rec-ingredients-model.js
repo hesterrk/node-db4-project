@@ -11,7 +11,7 @@ module.exports = {
     return db("recipe_ingredients as ri")
     .join("ingredients as i", "i.id", "ri.ingredient_id")
     .where("ri.recipe_id", recipeId)
-    .select("i.*")
+    .select("i.*", "ri.quantity")
     
 
   }
