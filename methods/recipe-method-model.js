@@ -10,6 +10,6 @@ function getInstructions(recipeId) {
     return db("recipe_method as rm")
     .join("recipes as r", "r.id", "rm.recipe_id")
     .where("rm.recipe_id", recipeId)
-    .select("rm.steps")
+    .select("rm.step_number","rm.steps")
 
 }
